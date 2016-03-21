@@ -45,6 +45,8 @@
 
 <p>Please read chapters one and two of the GnuPG Keysigning Party HOWTO (note: we are doing the party differently, so the other chapters do not apply completely).</p>
 
+<p><strong>IMPORTANT</strong>: The keysigning party aims to verify that the person matches the key, so it doesn't make sense to validate various organizational keys.  Thereby I am going to reject any non-personal keys (f.e. something like "DNS-OARC Key").</p>
+
 <h2>
 <a id="dont-you-have-a-strong-key-yet" class="anchor" href="#dont-you-have-a-strong-key-yet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Don't you have a strong key yet?</h2>
 
@@ -57,6 +59,40 @@
 <p>If you plan to migrate your WoT, you should read "HOWTO prep for migration off of SHA-1 in OpenPGP" at <a href="https://www.debian-administration.org/users/dkg/weblog/48">https://www.debian-administration.org/users/dkg/weblog/48</a> by dkg.</p>
 
 <p>You are also welcome to submit a second key using Ed25519 algorithm, read f.e.: <a href="http://www.gniibe.org/memo/software/gpg/keygen-25519.html">http://www.gniibe.org/memo/software/gpg/keygen-25519.html</a></p>
+
+<p>You will need at least GnuPG version 2.1.0 to have Ed25519 support, and it's often found as gpg2 command on various Linux distributions.  You can check your GnuPG version using <code>--version</code> argument:</p>
+
+<pre><code>$ gpg2 --version
+gpg (GnuPG) 2.1.11
+libgcrypt 1.6.5
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: ~/.gnupg
+Supported algorithms:
+Pubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+
+$ gpg1 --version
+gpg (GnuPG) 1.4.20
+Copyright (C) 2015 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: ~/.gnupg
+Supported algorithms:
+Pubkey: RSA, RSA-E, RSA-S, ELG-E, DSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: MD5, SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+</code></pre>
 
 <h2>
 <a id="check-your-key-and-fix-any-problem-with-your-key" class="anchor" href="#check-your-key-and-fix-any-problem-with-your-key" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Check your key and fix any problem with your key</h2>
