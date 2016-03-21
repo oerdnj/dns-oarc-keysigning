@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title> Keysigning in Buenos Aires by oerdnj</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1> Keysigning in Buenos Aires</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/oerdnj/dns-oarc-keysigning">View the Project on GitHub <small>oerdnj/dns-oarc-keysigning</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/oerdnj/dns-oarc-keysigning/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/oerdnj/dns-oarc-keysigning/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/oerdnj/dns-oarc-keysigning">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="where" class="anchor" href="#where" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Where?</h2>
+
+<p>As part of the DNS-OARC 24 and IETF 95 Conference in Buenos Aires, Argentina there will be OpenPGP (pgp/gpg) keysignings.</p>
+
+<h2>
+<a id="when" class="anchor" href="#when" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>When?</h2>
+
+<p>Ondřej Surý will announce the time and venue of a discussion/information session about the keysigning during DNS-OARC 24 (and IETF) in particular and modern cryptography in general.  It will be followed by a number of keysignings of small groups of people.</p>
+
+<h2>
+<a id="what-is-keysigning-and-why-do-it" class="anchor" href="#what-is-keysigning-and-why-do-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What is keysigning and why do it</h2>
+
+<p>A keysigning party or meeting is a get-together of at least two individuals who use the PGP encryption system with the purpose of allowing them to sign each others keys. Keysigning parties serve to extend the web of trust (WoT) to a great degree. A useful metric of the WoT is the mean shortest distance (MSD) of a key.</p>
+
+<p>Please read chapters one and two of the GnuPG Keysigning Party HOWTO (note: we are doing the party differently, so the other chapters do not apply completely).</p>
+
+<h2>
+<a id="dont-you-have-a-strong-key-yet" class="anchor" href="#dont-you-have-a-strong-key-yet" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Don't you have a strong key yet?</h2>
+
+<p>We should be moving to GPG keys with stronger ones using SHA256 or better. Please read f.e.:</p>
+
+<p><a href="https://lists.debian.org/debian-devel-announce/2010/09/msg00003.html">https://lists.debian.org/debian-devel-announce/2010/09/msg00003.html</a></p>
+
+<p>The process to create a new key is documented at <a href="http://keyring.debian.org/creating-key.html">http://keyring.debian.org/creating-key.html</a>.</p>
+
+<p>If you plan to migrate your WoT, you should read "HOWTO prep for migration off of SHA-1 in OpenPGP" at <a href="https://www.debian-administration.org/users/dkg/weblog/48">https://www.debian-administration.org/users/dkg/weblog/48</a> by dkg.</p>
+
+<p>You are also welcome to submit a second key using Ed25519 algorithm, read f.e.: <a href="http://www.gniibe.org/memo/software/gpg/keygen-25519.html">http://www.gniibe.org/memo/software/gpg/keygen-25519.html</a></p>
+
+<h2>
+<a id="check-your-key-and-fix-any-problem-with-your-key" class="anchor" href="#check-your-key-and-fix-any-problem-with-your-key" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Check your key and fix any problem with your key</h2>
+
+<p>Please read the document "OpenPGP Best Practices" by dkg which is available at <a href="https://help.riseup.net/en/security/message-security/openpgp/best-practices">https://help.riseup.net/en/security/message-security/openpgp/best-practices</a>. Its OpenPGP key checks have been implemented by Clint Adams (clint) in the Debian package hopenpgp-tools and dkg's recommended settings has been put together in a gpg.conf file by Jacob Appelbaum (error). Please check your key with clint's hokey lint command and use error's gpg.conf file as explained in dkg's document.</p>
+
+<h2>
+<a id="how-will-the-keysigning-happen" class="anchor" href="#how-will-the-keysigning-happen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How will the keysigning happen?</h2>
+
+<p>The keysignings will be based on the Efficient Group Key Signing Method by Len Sassaman and Phil Zimmermann which is a protocol to do keysignings in a way that is faster than the way many people may be familiar with.</p>
+
+<p>The keysigning steps follow.</p>
+
+<ul>
+<li><p>Please note that having multiple keys isn't a requirement. If you have one key to be signed, adjust the examples below from two keys to just one key. </p></li>
+<li><p>Revoke all non-reacheable or no longer valid uids. </p></li>
+<li><p>Update GnuPG to use SHA2 in preference to SHA1. Use error's gpg.conf file (see above) or read the information under "Update ~/.gnupg/gpg.conf" at <a href="http://keyring.debian.org/creating-key.html">http://keyring.debian.org/creating-key.html</a>. Don't forget to update ~/.caff/gnupghome/gpg.conf as well, if you use caff for signing keys, otherwise your signatures will be SHA1. </p></li>
+<li>
+<p>Cross sign your keys and upload them to a key server, if you haven't done so yet.</p>
+
+<p>Example with two keys 0xfedcba98 and 0x76543210 and uploading to a key server: </p>
+
+<p>gpg --local-user 0xfedcba98 --edit 0x76543210 sign
+  gpg --local-user 0x76543210 --edit 0xfedcba98 sign 
+  gpg --keyserver keys.gnupg.net --send-keys 0xfedcba98 0x76543210 </p>
+</li>
+<li>
+<p>Send your ascii armored, cleaned, minimized and clear-signed public keys to <a href="mailto:ksp@rfc1925.org">ksp@rfc1925.org</a> no later than 23:59 UTC/GMT/Zulu on Sunday 29th of March, 2016. Multiple cross-signed keys per armor are just fine. The signatures will prove the owner of the keys controls the private keys. </p>
+
+<ul>
+<li><p>Please check that your version of gpg does support the export-clean option. </p></li>
+<li><p>Please do not encrypt your email. </p></li>
+<li>Please do not send attachments. </li>
+<li>Please do not encode your email. </li>
+</ul>
+</li>
+</ul>
+
+<p>Example with two keys 0xfedcba98 and 0x76543210, signature is made with both keys 0xfedcba98 and 0x76543210: </p>
+
+<pre><code>gpg --armor --export-options export-clean,export-minimal --export 0xfedcba98 0x76543210 &gt; publickeyblock
+</code></pre>
+
+<p>Then clear-sign publickeyblock with your keys 0xfedcba98 and 0x76543210 creating publickeyblock.asc: </p>
+
+<pre><code>gpg --local-user 0xfedcba98 --clearsign --local-user 0x76543210 --clearsign publickeyblock 
+</code></pre>
+
+<p>Then email publickeyblock.asc as so: </p>
+
+<pre><code>mail -s "KeySigning Party @ DNS-OARC" ksp@rfc1925.org &lt; publickeyblock.asc 
+</code></pre>
+
+<p>Same example as a one-liner: </p>
+
+<pre><code>gpg --armor --export-options export-clean,export-minimal --export 0xfedcba98 0x76543210 | gpg --local-user 0xfedcba98 --clearsign --local-user 0x76543210 --clearsign | mail -s "KeySigning Party in Buenos Aires" ksp@rfc1925.org 
+</code></pre>
+
+<p>Another one-liner:</p>
+
+<pre><code>(echo -e "To: ksp@rfc1925.org\nFrom: Your Full Name &lt;name@example.org&gt;\nBcc: name@example.org\nSubject: KeySigning Party in Buenos Aires\n"; gpg --armor --export-options export-clean,export-minimal --export 0xfedcba98 0x76543210 | gpg --local-user 0xfedcba98 --clearsign --local-user 0x76543210 --clearsign) | sendmail -t 
+</code></pre>
+
+<p>Another one-liner (by Philip Hands): </p>
+
+<pre><code>( KEYS="0xfedcba98 0x76543210" ; \
+gpg --armor --export-options export-clean,export-minimal --export $KEYS | \
+gpg $(for k in $KEYS; do echo "--local-user $k --clearsign"; done) | \
+mail -s "KeySigning Party in Buenos Aires" anibal@debian.org \
+) 
+</code></pre>
+
+<ul>
+<li>Your keys will be processed manually and if the submitted keys are valid, an email will be sent back to you and the key IDs will be listed at TODO. If you find an error write immediately to <a href="mailto:ondrej.sury@nic.cz">ondrej.sury@nic.cz</a>. </li>
+</ul>
+
+<p>At TODO, if you want your name linked to your photo, send an email to <a href="mailto:anibal@debian.org">anibal@debian.org</a>. </p>
+
+<p>On Wednesday 31. March, 2015 you will be able to fetch the complete keyring (ksp-ba.gpg.bz2) with all the keys that were submitted along with a text file (ksp-ba.txt) giving the fingerprint of each key on the ring. </p>
+
+<p>At TODO both the keyring and text files will have corresponding files with their SHA256 checksums. The SHA256 files will be signed with public key 0x0C99B70EF4FCBB07, which can be downloaded from keyring.debian.org or other public keyservers. </p>
+
+<p>To verify the signature of the SHA256 files, download ondrej's key from db.debian.org, e.g.: </p>
+
+<pre><code>finger ondrej/key@db.debian.org | gpg --import 
+</code></pre>
+
+<p>And then run gpg with the verify option (using ksp-dc15.txt.sha256.asc as an example): </p>
+
+<pre><code>gpg --verify ksp-ba.txt.sha256.asc 
+</code></pre>
+
+<ul>
+<li>
+<p>Verify that the fingerprints of your keys in ksp-dc15.txt are correct. Also compute the SHA256 hash of ksp-ba.txt. One way to do this is with sha256sum invoked as follows: </p>
+
+<p>sha256sum ksp-ba.txt </p>
+</li>
+<li>
+<p>Bring the hash you computed and a hardcopy of ksp-ba.txt to Buenos Aires. </p>
+
+<ul>
+<li>It is very important that you have verified at home the fingerprints of your keys on the hardcopy. </li>
+<li>It is also very important that you have computed the hash at home. </li>
+</ul>
+</li>
+<li><p>The SHA256 hash of ksp-ba.txt will be announced during the discussion/information session. Verify that the hashes match what you computed. This guarantees that all participants are working from the same list of keys. </p></li>
+<li>
+<p>During DNS-OARC 24 and IETF 95, look for keysigning participants during the conference. </p>
+
+<pre><code>For each participant: 
+</code></pre>
+
+<ol>
+<li>Compare the hash you computed with the other participant (it will be recited loudly).</li>
+<li>Ask if the other participant's gpg fingerprints on the hardcopy are correct.</li>
+<li>Verify each other's identity by checking preferably a passport or, alternatively, some other form of government issued ID. Please don't show very old, doubtful or easy-to-fake documents as people will not sign your key if you do so.</li>
+<li>If you are satisfied with the identification, mark on your hardcopy that the other participant's gpg fingerprints are correct and the other participant has been identified. </li>
+</ol>
+</li>
+<li><p>Later that evening, or perhaps when you get home, you can sign the keys in ksp-ba.txt which you were able to verify and identify. </p></li>
+</ul>
+
+<p>Please use caff to sign keys, one of the scripts of pgp-tools. The scripts are also available as the debian package signing-party. </p>
+
+<h2>
+<a id="downloads" class="anchor" href="#downloads" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloads</h2>
+
+<pre><code>ksp-ba.txt - List of participants (text file). 
+
+ksp-ba.gpg.bz2 - Participating keys (keyring). 
+</code></pre>
+
+<h2>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h2>
+
+<p>What to bring with you</p>
+
+<ul>
+<li>A printout of ksp-dc15.txt; check that your fingerprints are correct. </li>
+<li>A pen. </li>
+<li>The SHA256 hash you made of ksp-dc15.txt so that we can ensure we are all working with the same copy. </li>
+<li>Some form of government issued ID (passport or similar). </li>
+<li>If this is your first keysigning, a copy of this web page and linked documents might be useful. </li>
+</ul>
+
+<h2>
+<a id="questions" class="anchor" href="#questions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Questions</h2>
+
+<p>If you have questions please send them to <a href="mailto:ondrej.sury@nic.cz">ondrej.sury@nic.cz</a>.</p>
+
+<h2>
+<a id="thanks" class="anchor" href="#thanks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Thanks</h2>
+
+<p>Special thanks goes to Benjamin Mako Hill who provided the scripts and text used at DebConf4, Peter Palfrader who provided the scripts and text used at DebConf3 and LinuxTag (2003 and 2004) whose reuse made putting together this keysigning easy and possible, and Daniel Kahn Gillmor and Anibal Monsalve Salazar for doing this at DebConf15.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/oerdnj">oerdnj</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
