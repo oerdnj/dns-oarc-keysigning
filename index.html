@@ -74,17 +74,17 @@
 <li><p>Please note that having multiple keys isn't a requirement. If you have one key to be signed, adjust the examples below from two keys to just one key. </p></li>
 <li><p>Revoke all non-reacheable or no longer valid uids. </p></li>
 <li><p>Update GnuPG to use SHA2 in preference to SHA1. Use error's gpg.conf file (see above) or read the information under "Update ~/.gnupg/gpg.conf" at <a href="http://keyring.debian.org/creating-key.html">http://keyring.debian.org/creating-key.html</a>. Don't forget to update ~/.caff/gnupghome/gpg.conf as well, if you use caff for signing keys, otherwise your signatures will be SHA1. </p></li>
-<li>
-<p>Cross sign your keys and upload them to a key server, if you haven't done so yet.</p>
+<li><p>Cross sign your keys and upload them to a key server, if you haven't done so yet.</p></li>
+</ul>
 
 <p>Example with two keys 0xfedcba98 and 0x76543210 and uploading to a key server: </p>
 
-<p>gpg --local-user 0xfedcba98 --edit 0x76543210 sign</p>
+<pre><code>gpg --local-user 0xfedcba98 --edit 0x76543210 sign
+gpg --local-user 0x76543210 --edit 0xfedcba98 sign 
+gpg --keyserver keys.gnupg.net --send-keys 0xfedcba98 0x76543210 
+</code></pre>
 
-<p>gpg --local-user 0x76543210 --edit 0xfedcba98 sign </p>
-
-<p>gpg --keyserver keys.gnupg.net --send-keys 0xfedcba98 0x76543210 </p>
-</li>
+<ul>
 <li>
 <p>Send your ascii armored, cleaned, minimized and clear-signed public keys to <a href="mailto:ksp-ba@rfc1925.org">ksp-ba@rfc1925.org</a> no later than 23:59 UTC/GMT/Zulu on Sunday 29th of March, 2016. Multiple cross-signed keys per armor are just fine. The signatures will prove the owner of the keys controls the private keys. </p>
 
