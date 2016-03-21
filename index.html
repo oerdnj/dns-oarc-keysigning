@@ -110,8 +110,8 @@ Compression: Uncompressed, ZIP, ZLIB, BZIP2
 <li><p>Please note that having multiple keys isn't a requirement. If you have one key to be signed, adjust the examples below from two keys to just one key. </p></li>
 <li><p>Revoke all non-reacheable or no longer valid uids. </p></li>
 <li><p>Update GnuPG to use SHA2 in preference to SHA1. Use error's gpg.conf file (see above) or read the information under "Update ~/.gnupg/gpg.conf" at <a href="http://keyring.debian.org/creating-key.html">http://keyring.debian.org/creating-key.html</a>. Don't forget to update ~/.caff/gnupghome/gpg.conf as well, if you use caff for signing keys, otherwise your signatures will be SHA1. </p></li>
-<li><p>Cross sign your keys and upload them to a key server, if you haven't done so yet.</p></li>
-</ul>
+<li>
+<p>Cross sign your keys and upload them to a key server, if you haven't done so yet.</p>
 
 <p>Example with two keys 0xfedcba98 and 0x76543210 and uploading to a key server: </p>
 
@@ -119,18 +119,15 @@ Compression: Uncompressed, ZIP, ZLIB, BZIP2
 gpg --local-user 0x76543210 --edit 0xfedcba98 sign 
 gpg --keyserver keys.gnupg.net --send-keys 0xfedcba98 0x76543210 
 </code></pre>
-
-<ul>
+</li>
 <li>
-<p>Send your ascii armored, cleaned, minimized and clear-signed public keys to <a href="mailto:ksp-ba@rfc1925.org">ksp-ba@rfc1925.org</a> no later than 23:59 UTC/GMT/Zulu on Sunday 29th of March, 2016. Multiple cross-signed keys per armor are just fine. The signatures will prove the owner of the keys controls the private keys. </p>
+<p>Send your ascii armored, cleaned, minimized and clear-signed public keys to <a href="mailto:pgpsign@dns-oarc.net">pgpsign@dns-oarc.net</a> no later than 23:59 UTC/GMT/Zulu on Sunday 29th of March, 2016. Multiple cross-signed keys per armor are just fine. The signatures will prove the owner of the keys controls the private keys. </p>
 
 <ul>
-<li><p>Please check that your version of gpg does support the export-clean option. </p></li>
-<li><p>Please do not encrypt your email. </p></li>
+<li>Please check that your version of gpg does support the export-clean option. </li>
+<li>Please do not encrypt your email. </li>
 <li>Please do not send attachments. </li>
 <li>Please do not encode your email. </li>
-</ul>
-</li>
 </ul>
 
 <p>Example with two keys 0xfedcba98 and 0x76543210, signature is made with both keys 0xfedcba98 and 0x76543210: </p>
@@ -145,17 +142,17 @@ gpg --keyserver keys.gnupg.net --send-keys 0xfedcba98 0x76543210
 
 <p>Then email publickeyblock.asc as so: </p>
 
-<pre><code>mail -s "KeySigning Party @ DNS-OARC" ksp-ba@rfc1925.org &lt; publickeyblock.asc 
+<pre><code>mail -s "KeySigning Party @ DNS-OARC" pgpsign@dns-oarc.net &lt; publickeyblock.asc 
 </code></pre>
 
 <p>Same example as a one-liner: </p>
 
-<pre><code>gpg --armor --export-options export-clean,export-minimal --export 0xfedcba98 0x76543210 | gpg --local-user 0xfedcba98 --clearsign --local-user 0x76543210 --clearsign | mail -s "KeySigning Party in Buenos Aires" ksp-ba@rfc1925.org 
+<pre><code>gpg --armor --export-options export-clean,export-minimal --export 0xfedcba98 0x76543210 | gpg --local-user 0xfedcba98 --clearsign --local-user 0x76543210 --clearsign | mail -s "KeySigning Party in Buenos Aires" pgpsign@dns-oarc.net 
 </code></pre>
 
 <p>Another one-liner:</p>
 
-<pre><code>(echo -e "To: ksp-ba@rfc1925.org\nFrom: Your Full Name &lt;name@example.org&gt;\nBcc: name@example.org\nSubject: KeySigning Party in Buenos Aires\n"; gpg --armor --export-options export-clean,export-minimal --export 0xfedcba98 0x76543210 | gpg --local-user 0xfedcba98 --clearsign --local-user 0x76543210 --clearsign) | sendmail -t 
+<pre><code>(echo -e "To: pgpsign@dns-oarc.net\nFrom: Your Full Name &lt;name@example.org&gt;\nBcc: name@example.org\nSubject: KeySigning Party in Buenos Aires\n"; gpg --armor --export-options export-clean,export-minimal --export 0xfedcba98 0x76543210 | gpg --local-user 0xfedcba98 --clearsign --local-user 0x76543210 --clearsign) | sendmail -t 
 </code></pre>
 
 <p>Another one-liner (by Philip Hands): </p>
@@ -163,19 +160,16 @@ gpg --keyserver keys.gnupg.net --send-keys 0xfedcba98 0x76543210
 <pre><code>( KEYS="0xfedcba98 0x76543210" ; \
 gpg --armor --export-options export-clean,export-minimal --export $KEYS | \
 gpg $(for k in $KEYS; do echo "--local-user $k --clearsign"; done) | \
-mail -s "KeySigning Party in Buenos Aires" anibal@debian.org \
+mail -s "KeySigning Party in Buenos Aires" pgpsign@dns-oarc.net \
 ) 
 </code></pre>
-
-<ul>
-<li>Your keys will be processed manually and if the submitted keys are valid, an email will be sent back to you and the key IDs will be listed at TODO. If you find an error write immediately to <a href="mailto:ondrej.sury@nic.cz">ondrej.sury@nic.cz</a>. </li>
-</ul>
-
-<p>At TODO, if you want your name linked to your photo, send an email to <a href="mailto:anibal@debian.org">anibal@debian.org</a>. </p>
+</li>
+<li>
+<p>Your keys will be processed manually and if the submitted keys are valid, an email will be sent back to you and the key IDs will be listed at <a href="https://github.com/oerdnj/dns-oarc-keysigning/tree/master">https://github.com/oerdnj/dns-oarc-keysigning/tree/master</a>. If you find an error write immediately to <a href="mailto:pgpsign@dns-oarc.net">pgpsign@dns-oarc.net</a>. </p>
 
 <p>On Wednesday 31. March, 2015 you will be able to fetch the complete keyring (ksp-ba.gpg.bz2) with all the keys that were submitted along with a text file (<a href="https://raw.githubusercontent.com/oerdnj/dns-oarc-keysigning/master/ksp-ba.txt">ksp-ba.txt</a>) giving the fingerprint of each key on the ring. </p>
 
-<p>At TODO both the keyring and text files will have corresponding files with their SHA256 checksums. The SHA256 files will be signed with public key 0x0C99B70EF4FCBB07, which can be downloaded from keyring.debian.org or other public keyservers. </p>
+<p>At <a href="https://github.com/oerdnj/dns-oarc-keysigning/tree/master">https://github.com/oerdnj/dns-oarc-keysigning/tree/master</a> both the keyring and text files will have corresponding files with their SHA256 checksums. The SHA256 files will be signed with public key 0x0C99B70EF4FCBB07, which can be downloaded from keyring.debian.org or other public keyservers. </p>
 
 <p>To verify the signature of the SHA256 files, download ondrej's key from db.debian.org, e.g.: </p>
 
@@ -186,8 +180,7 @@ mail -s "KeySigning Party in Buenos Aires" anibal@debian.org \
 
 <pre><code>gpg --verify ksp-ba.txt.sha256.asc 
 </code></pre>
-
-<ul>
+</li>
 <li>
 <p>Verify that the fingerprints of your keys in ksp-dc15.txt are correct. Also compute the SHA256 hash of ksp-ba.txt. One way to do this is with sha256sum invoked as follows: </p>
 
@@ -205,8 +198,7 @@ mail -s "KeySigning Party in Buenos Aires" anibal@debian.org \
 <li>
 <p>During DNS-OARC 24 and IETF 95, look for keysigning participants during the conference. </p>
 
-<pre><code>For each participant: 
-</code></pre>
+<p>For each participant: </p>
 
 <ol>
 <li>Compare the hash you computed with the other participant (it will be recited loudly).</li>
