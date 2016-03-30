@@ -1,0 +1,176 @@
+                      B U E N O S   A I R E S   K E Y S I G N I N G
+
+                           List of Participants  (v 1.0)
+
+
+Here's what you have to do with this file:
+
+1. Print this file to paper.
+2. Compute this file's SHA256 checksum: sha256sum ksp-ba16.txt
+3. Fill in the hash values on the printout.
+4. Bring the printout, a pen, and proof of identity to the keysigning.
+
+For each participant:
+
+1. Compare the hash you computed with the other participant.
+2. Ask if the other participant's gpg fingerprint on the hardcopy is correct.
+3. Verify each other's identity by checking preferably a passport.
+4. If you are satisfied with the identification, mark on your hardcopy that
+   the other participant's gpg fingerprint is correct and has been identified.
+
+
+SHA256 Checksum: _________________________________________________________ [ ]
+
+
+
+#1	Daniel Stirnimann
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0xD836572C912DA8C8 2015-05-09 [SC]
+      Key fingerprint = B077 3490 BDD1 BCCD DC6F  D3DE D836 572C 912D A8C8
+uid                   Daniel Stirnimann <daniel.stirnimann@switch.ch>
+uid                   Daniel Stirnimann <stirnima@switch.ch>
+sub   rsa4096/0x0D71C7B59210409A 2015-05-09 [E]
+
+#2	Hugo Salgado
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0xD770BB46F120A230 2014-09-02 [SC] [expires: 2017-09-01]
+      Key fingerprint = 355A 539D 1488 EF91 73DC  56C6 D770 BB46 F120 A230
+uid                   Hugo Salgado <hsalgado@nic.cl>
+sub   rsa4096/0xB7B123CA25D48735 2014-09-02 [E] [expires: 2017-09-01]
+sub   rsa4096/0xB0EE44B0E6F4E9AD 2014-09-02 [S]
+
+#3	Jan Vcelak
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0x2C8164BBB9D06012 2013-07-03 [SC] [expires: 2017-04-01]
+      Key fingerprint = E5CC 7F4E A4D8 D9D0 6B9F  2F46 2C81 64BB B9D0 6012
+uid                   Jan Vcelak <jv@fcelda.cz>
+uid                   Jan Vcelak <vcelak.jan@gmail.com>
+uid                   Jan Vcelak <jan.vcelak@nic.cz>
+uid                   Jan Vcelak <jvcelak@fedoraproject.org>
+sub   rsa4096/0xDF8D96F987A3A4B4 2013-07-03 [E]
+
+#4	Jerry Lundström
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0x4F23A0260F19DAC5 2015-01-28 [SC] [expires: 2025-01-25]
+      Key fingerprint = 6A76 4BCC 3C94 AC13 C028  40F9 4F23 A026 0F19 DAC5
+uid                   Jerry Lundström (package signing) <lundstrom.jerry@gmail.com>
+sub   rsa4096/0x8DDC86125D0DBCE8 2015-01-28 [E] [expires: 2025-01-25]
+
+pub   rsa4096/0x19B6D253A356B4BB 2016-02-10 [SC] [expires: 2026-02-07]
+      Key fingerprint = A3FF B895 D90B 4432 95A6  6C3E 19B6 D253 A356 B4BB
+uid                   Jerry Lundström <jerry@dns-oarc.net>
+uid                   Jerry Lundström <jelu@dns-oarc.net>
+sub   rsa4096/0x9E093D7233656DEF 2016-02-10 [E] [expires: 2026-02-07]
+
+pub   rsa4096/0xBF5737BBE39D0600 2016-02-10 [SC] [expires: 2026-02-07]
+      Key fingerprint = CA92 2A2D D2B6 3DAB 7979  FDA0 BF57 37BB E39D 0600
+uid                   Jerry Lundström <jerry@makeinstall.se>
+sub   rsa4096/0xBBD5D37AAF146A57 2016-02-10 [E] [expires: 2026-02-07]
+
+pub   rsa4096/0x8F7DE96953F38A60 2015-01-28 [SC] [expires: 2025-01-25]
+      Key fingerprint = 2208 BD18 295D 1FD2 7BFF  113C 8F7D E969 53F3 8A60
+uid                   Jerry Lundström <lundstrom.jerry@gmail.com>
+sub   rsa4096/0x3C61330ABABD8162 2015-01-28 [E] [expires: 2025-01-25]
+
+#5	Linus Nordberg
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0x1E8BF34923291265 2010-05-07 [SC]
+      Key fingerprint = 8C4C D511 095E 982E B0EF  BFA2 1E8B F349 2329 1265
+uid                   Linus Nordberg <linus@nordberg.se>
+uid                   Linus Nordberg <linus@nordu.net>
+uid                   Linus Nordberg <linus@torproject.org>
+uid                   [jpeg image of size 2906]
+uid                   Linus Nordberg <linus@dfri.se>
+sub   rsa4096/0x39D965713B249393 2015-04-20 [E] [expires: 2016-04-19]
+
+#6	Matthew Pounsett
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0x3ADE21DA559A3BE3 2014-09-17 [SC] [expires: 2018-03-22]
+      Key fingerprint = E294 C025 8A4A E356 EA4B  AF13 3ADE 21DA 559A 3BE3
+uid                   Matthew Pounsett (primary work address) <matt.pounsett@rightside.co>
+uid                   Matthew Pounsett <matthew.pounsett@rightside.co>
+sub   rsa4096/0x275E1F240B1E5A72 2014-09-17 [E] [expires: 2018-03-22]
+
+pub   rsa4096/0x7E719F1B79088852 2015-05-10 [SC] [expires: 2018-05-09]
+      Key fingerprint = 07CF BD89 017A 2419 3AF4  2793 7E71 9F1B 7908 8852
+uid                   Matthew Pounsett <matt@conundrum.com>
+sub   rsa4096/0x95590A6BAC30A4F6 2015-05-10 [E] [expires: 2018-05-09]
+
+#7	Ondřej Surý
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   ed25519/0xF3DE0400E1414EE9 2015-08-17 [SC] [expires: 2017-10-02]
+      Key fingerprint = 9C0C 22D5 E3EC C28C 6358  2484 F3DE 0400 E141 4EE9
+uid                   Ondřej Surý <ondrej@debian.org>
+uid                   Ondřej Surý <ondrej.sury@nic.cz>
+uid                   Ondřej Surý <ondrej@sury.org>
+
+pub   rsa4096/0x0C99B70EF4FCBB07 2010-11-14 [SC] [expires: 2017-05-08]
+      Key fingerprint = 30B9 33D8 0FCE 3D98 1A2D  38FB 0C99 B70E F4FC BB07
+uid                   Ondřej Surý <ondrej@sury.org>
+uid                   [jpeg image of size 3934]
+uid                   Ondřej Surý <ondrej@debian.org>
+uid                   Ondřej Surý <ondrej.sury@nic.cz>
+sub   rsa4096/0xC8BE659746582F7F 2010-11-14 [E] [expires: 2017-05-25]
+sub   rsa4096/0x763748032B5E9DCD 2015-06-16 [S] [expires: 2016-06-15]
+
+#8	Paul Wouters
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0x62D3582FE0FD94D2 2014-12-11 [SC] [expires: 2017-12-10]
+      Key fingerprint = F384 E78A 1D33 52D3 EB92  8AB8 62D3 582F E0FD 94D2
+uid                   Paul Wouters <pwouters@redhat.com>
+uid                   Paul Wouters <paul@nohats.ca>
+uid                   Paul Wouters <paul@libreswan.org>
+uid                   Paul Wouters <paul@cypherpunks.ca>
+uid                   Paul Wouters <pwouters@fedoraproject.org>
+sub   rsa4096/0x634D6E0FE56F043D 2014-12-11 [E] [expires: 2017-12-10]
+
+#9	Rich Salz
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa2048/0xF23479455C51B27C 2013-08-16 [SC] [expires: 2017-08-30]
+      Key fingerprint = D099 684D C7C2 1E02 E14A  8AFE F234 7945 5C51 B27C
+uid                   Rich Salz <rich.salz@gmail.com>
+uid                   Rich Salz <rsalz@openssl.org>
+uid                   Rich Salz <rsalz@akamai.com>
+sub   rsa2048/0x62483427B136799B 2013-08-16 [E] [expires: 2017-08-30]
+
+#10	Robert Edmonds
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0x01817AB0AAF6CDAE 2013-10-03 [SC]
+      Key fingerprint = DF3D 96EE B382 7820 F302  665C 0181 7AB0 AAF6 CDAE
+uid                   Robert Edmonds <edmonds@mycre.ws>
+uid                   Robert Edmonds <edmonds@fsi.io>
+uid                   Robert Edmonds <edmonds@debian.org>
+sub   rsa4096/0x292C9BB54A4D3CBA 2013-10-03 [E]
+
+#11	Stéphane Bortzmeyer
+
+      [ ] Fingerprint(s) OK        [ ] ID OK
+
+pub   rsa4096/0x555F5B15CCC66677 2014-02-08 [SC] [expires: 2018-01-10]
+      Key fingerprint = F42D 259A 35AD BDC8 5D9B  FF3E 555F 5B15 CCC6 6677
+uid                   Stéphane Bortzmeyer (Main key) <stephane@bortzmeyer.org>
+uid                   Stéphane Bortzmeyer (Work address) <bortzmeyer@nic.fr>
+uid                   Stéphane Bortzmeyer <stephane@sources.org>
+uid                   TextSecure fingerprint (05 d6 3b dc b7 e4 d7 69 2f f6 24 d5 51 31 88 2f a5 59 ae 96 e0 fb a5 75 ab e6 6c 64 ca e9 bb 6a 77) <BdY73Lfk12kv9iTVUTGIL6VZrpbg+6V1q+ZsZMrpu2p3@base64>
+sub   rsa4096/0x3FA836C996A4A254 2014-02-09 [S] [expires: 2018-01-10]
+sub   rsa4096/0x9045E02757F02AA1 2014-02-09 [E] [expires: 2017-01-10]
